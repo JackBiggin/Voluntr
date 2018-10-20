@@ -1,7 +1,10 @@
 <!doctype html>
-<html lang="en" class="page">
+<html lang="en">
 
   <head>
+    <title>Profile</title>
+    <link href="https://fonts.googleapis.com/css?family=K2D" rel="stylesheet">
+    <link rel="icon" href="img/icon.png">
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,18 +14,21 @@
 
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
-  <body> 
+  <body class="not-home"> 
 
     <nav class="navbar navbar-expand-sm navbar-light bg-light" sticky-top>
-      <a href="#" class="navbar-brand">Voluntr</a>
+      <a href="#" class="navbar-brand"><img class="nav-img" src="img/icon.png"></a>
       <div >
         <ul class="navbar-nav">
           <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
+          <li class="nav-item"><a class="nav-link" href="find.html">Find Volunteers</a></li>
         </ul> 
       </div>   
     </nav>
-
+    <br>
+    <br>
+    <br>
     <div class="container">
       <div class="main">
         <h3>Enter your information</h3>
@@ -30,16 +36,12 @@
         <form class="form" action="" method="POST">
           
           <div>
-            <label>Address:</label>
-            <input type="text" name="address" placeholder="Enter address">
-          </div>
-          <div>
             <label>Times Available: </label>
             <table class="table">
               <thead>
                 <tr>
-                  <th class="text-left">Times</th>
-                  <th class="text-left">Sunday</th>
+                  <th>Times</th>
+                  <th>Sunday</th>
                   <th>Monday</th>
                   <th>Tuesday</th>
                   <th>Wednesday</th>
@@ -156,9 +158,9 @@
     </div>
 
     <div class="footer navbar-light bg-light">
-      <div class="container">
-        <h3>Home</h3>
-      </div>
+      <span>
+        <p>Voluntr 2018</p>
+      </span>
     </div>
 
     

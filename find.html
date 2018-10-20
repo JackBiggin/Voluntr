@@ -1,6 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="not-home">
   <head>
+    <title>Find Volunteers</title>
+    <link href="https://fonts.googleapis.com/css?family=K2D" rel="stylesheet">
+    <link rel="icon" href="img/icon.png">
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,10 +13,10 @@
 
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
-  <body> 
+  <body class="not-home"> 
 
     <nav class="navbar navbar-expand-sm navbar-light bg-light" sticky-top>
-      <a href="#" class="navbar-brand">Voluntr</a>
+      <a href="#" class="navbar-brand"><img class="nav-img" src="img/icon.png"></a>
       <div >
         <ul class="navbar-nav">
           <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
@@ -23,38 +26,47 @@
       </div>   
     </nav>
 
-    <div class="container">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container find-box">
       <div class="main">
         <h3>Enter event information:</h3>
           <form class="form" action="" method="POST">
-            <div>
-              <label>Event Name:</label>
-              <input type="text" name="event-name" placeholder="Enter event name">
+            <div class="fields">
+              <div>
+                <label>Event Name:</label>
+                <input type="text" name="event-name" placeholder="Enter event name">
+              </div>
+              <div>
+                <label>Event Location:</label>
+                <input type="text" name="location" placeholder="Enter location">
+              </div>
+              <div>
+                <label>Start Time:</label>
+                <input type="time" name="start-time">
+              </div>
+              <div>
+                <label>End Time:</label>
+                <input type="time" name="end-time">
+              </div>
             </div>
-            <div>
-              <label>Event Location:</label>
-              <input type="text" name="location" placeholder="Enter location">
-            </div>
-            <div>
-              <label>Start Time:</label>
-              <input type="time" name="start-time">
-            </div>
-            <div>
-              <label>End Time:</label>
-              <input type="time" name="end-time">
-            </div>
+            <br>
             <input type="submit" name="search" 
-            value="Search For Volunteers">
+            value="Create Event and Search For Volunteers" id="submit" class="submit">
           </form>
 
-          
+
       </div>
     </div>
 
     <div class="footer navbar-light bg-light">
-      <div class="container">
-        <h3>Home</h3>
-      </div>
+      <span>
+        <p>Voluntr 2018</p>
+      </span>
     </div>
 
     

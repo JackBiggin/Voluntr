@@ -1,20 +1,49 @@
 body{
-	background : turquoise;
+	
+	font-family: 'K2D', sans-serif; 
 }
+
+.nav-img{
+	width : 50px;
+}
+
 
 .footer{
 	position: absolute;
 	bottom:0;
 	height:40px;
 	width:100%;
+	background-color: #f6f6f6;
 }
 
 .jumbotron {
-	background-image: url("img/logo.png");
+	background-image: url("img/background.png");
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
 	background-position: center center;
-	height : 400px;
+	height:550px;
+}
+
+.name-img{
+	width : 50%;
+
+}
+
+.title{
+	text-align: center;
+}
+
+.main-button{
+	text-align: center;
+}
+
+
+.not-home{
+	background-image: url("img/background.png");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position: cover;
+	height : 620px;
 }
 
 table{
@@ -22,7 +51,8 @@ table{
 }
 
 th{
-	text-align:left;
+	text-align:center;
+
 }
 tr{
 	text-align:center;
@@ -40,16 +70,20 @@ table, th, td {
 
 
 #main-button{
-	padding: 10px;
-	border-radius: 15px;
-	color: white;
-	background: turquoise;
+	padding: 15px 40px;
+	border-radius: 18px;
+	color: #2BCBBA;
+	background: #f7f7f7;
+	font-size: 15px;
+	
+	font-style: italic;
 }
 
 #main-button:hover{
 	text-decoration: none;
-	color: gray;
-	background: lightgreen;
+	background: #2BCBBA;
+	color : #f7f7f7;
+
 }
 
 .form{
@@ -58,13 +92,35 @@ table, th, td {
 
 .submit{
 	text-align: center center;
-	color : white;
-	background : green;
+	color : #2BCBBA;
+	background : #e0e0e0;
 	border : none;
 	border-radius: 15px;
 	padding:10px;
 }
 
 #submit:hover {
-	background: #03AF8D;
+	background: #2BCBBA;
+	color : white;
+}
+
+.container{
+	background : #f6f6f6;
+	padding : 10px 20px;
+	color : #2BCBBA;
+	border-radius:10px;
+}
+
+.find-box
+{
+	text-align:center;
+	width : 50%;
+}
+
+.fields{
+	text-align: center;
+}
+
+h3{
+	text-decoration: underline;
 }
