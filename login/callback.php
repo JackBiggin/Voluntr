@@ -62,6 +62,9 @@ if (!isset($_GET['code'])) {
         $userData = [
             'fname' => $user->getFirstname(),
             'sname' => $user->getLastName(),
+            'auth_token' => $token->getToken(),
+            'auth_token_expiry' => $token->getExpires(),
+            'refresh_token' => $token->getRefreshToken(),
             'profile_picture' => $user->getImageUrl(),
             'linkedin_id' => $user->getId(),
             'location' => $user->getLocation(),
@@ -69,9 +72,28 @@ if (!isset($_GET['code'])) {
             'email' => $user->getEmail()
         ];
 
-        $stmt = $pdo->prepare('INSERT INTO users (fname, sname, auth_token, refresh_token, profile_picture, location, linkedin_id, linkedin_headline, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)');
-        $stmt->execute([$userData['fname'], $userData['sname'], 'test', 'test', $userData['profile_picture'], $userData['location'], $userData['linkedin_id'], $userData['headline'], $userData['email']]);
+        // Get user for that linkedin user id
+        $stmt = $pdo->prepare('SELECT * FROM users WHERE linkedin_id = ?');
+        $stmt->execute([$userData['linkedin_id']]);
 
+        foreach($stmt as $row) {
+            $user_exists = true;
+        }
+    
+        if(!$user_exists) {
+            $insstmt = $pdo->prepare('INSERT INTO users (fname, sname, auth_token, auth_token_expiry, refresh_token, profile_picture, location, linkedin_id, linkedin_headline, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
+            $insstmt->execute([$userData['fname'], $userData['sname'], $userData['auth_token'], $userData['auth_token_expiry'], 'todo', $userData['profile_picture'], $userData['location'], $userData['linkedin_id'], $userData['headline'], $userData['email']]);
+    
+        }
+
+        $stmt = $pdo->prepare('SELECT `uid` from users WHERE linkedin_id = ?');
+        $stmt->execute([$userData['linkedin_id']]);
+
+        foreach($stmt as $row) {
+            $userData['uid'] = $row['uid'];
+        }
+
+        $_SESSION = $userData;
 
     } catch (Exception $e) {
 
