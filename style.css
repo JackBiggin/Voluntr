@@ -1,0 +1,70 @@
+body{
+	background : turquoise;
+}
+
+.footer{
+	position: absolute;
+	bottom:0;
+	height:40px;
+	width:100%;
+}
+
+.jumbotron {
+	background-image: url("img/logo.png");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position: center center;
+	height : 400px;
+}
+
+table{
+
+}
+
+th{
+	text-align:left;
+}
+tr{
+	text-align:center;
+}
+
+table, th, td {
+	border: 3px solid lightgrey;
+	border-collapse: collapse;
+}
+
+.row{
+	padding-top: 125px;
+
+}
+
+
+#main-button{
+	padding: 10px;
+	border-radius: 15px;
+	color: white;
+	background: turquoise;
+}
+
+#main-button:hover{
+	text-decoration: none;
+	color: gray;
+	background: lightgreen;
+}
+
+.form{
+	padding-bottom: 20px;
+}
+
+.submit{
+	text-align: center center;
+	color : white;
+	background : green;
+	border : none;
+	border-radius: 15px;
+	padding:10px;
+}
+
+#submit:hover {
+	background: #03AF8D;
+}
