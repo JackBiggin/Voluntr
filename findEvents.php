@@ -1,3 +1,7 @@
+<?php 
+  session_start();
+?>
+
 <!doctype html>
 <html lang="en" class="not-home">
   <head>
@@ -36,14 +40,16 @@
       <div class="find-box find-events"></div>
       <div class="main">
           <h3>Enter event information:</h3>
-          <select class="form-control">
-            <option value="educational">Educational</option>
-            <option value="community">Community</option>
-            <option value="large">Large Events</option>
-          </select> 
-          <br>
-          <br> 
-          <a href="#" class="submit" id="submit">Search</a>
+          <form action="./findEvents.php" method="get">
+            <select class="form-control" name="category">
+              <option value="educational">Educational</option>
+              <option value="community">Community</option>
+              <option value="Large Events">Large Events</option>
+            </select> 
+            <br>
+            <br> 
+            <input class="submit" id="submit" type="submit" value="Search"></input>
+          </form>
         </div>
       <br/ > <br />
 
@@ -76,12 +82,49 @@
 
 
         foreach($stmt as $row) {
+            $time = $row['time']; 
+            $dt = new DateTime("@$time");
+
+            $dt->setTimezone(new DateTimeZone('America/New_York'));
+
+            $user_location = urlencode($_SESSION['location']);
+
+            $api2 = file_get_contents("https://geocoder.api.here.com/6.2/geocode.json?searchtext=" . $user_location . "&app_id=e0sebt0gq7D5QJQsDtSv&app_code=1fqtmWy8S7eV9qPtA3sGzw");
+
+            $api2 = json_decode($api2, true);
+
+            $lat = $api2["Response"]["View"][0]["Result"][0]["Location"]["DisplayPosition"]["Latitude"];
+
+            $long = $api2["Response"]["View"][0]["Result"][0]["Location"]["DisplayPosition"]["Longitude"];
+            
+            $waypoint0 = "geo!" . $lat . "," . $long;
+
+            $api2 = file_get_contents("https://geocoder.api.here.com/6.2/geocode.json?searchtext=" . urlencode($row['location']) . "&app_id=e0sebt0gq7D5QJQsDtSv&app_code=1fqtmWy8S7eV9qPtA3sGzw");
+
+            $api2 = json_decode($api2, true);
+
+            $lat = $api2["Response"]["View"][0]["Result"][0]["Location"]["DisplayPosition"]["Latitude"];
+
+            $long = $api2["Response"]["View"][0]["Result"][0]["Location"]["DisplayPosition"]["Longitude"];
+            
+            $waypoint1 = "geo!" . $lat . "," . $long;
+
+            $api = file_get_contents("https://route.api.here.com/routing/7.2/calculateroute.json?waypoint0=" . urlencode($waypoint0) . "&waypoint1=" . urlencode($waypoint1) . "&mode=fastest%3Bcar%3Btraffic%3Aenabled&app_id=devportal-demo-20180625&app_code=9v2BkviRwi9Ot26kp2IysQ&departure=now");
+
+            $api = json_decode($api, true);
+
+            $distance = $api["response"]["route"][0]["summary"]["distance"];
+            $distance = $distance / 1000;
+            $distance = $distance . "km";
+
             echo '<div class="card">
             <h5 class="card-header">' . $row['name'] . '</h5>
             <div class="card-body">
-              <h5 class="card-title">Special title treatment</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+              <p class="card-text">' . $dt->format('Y-m-d H:i:s') . '</p>
+              <p class="card-text">' . $row['location'] . '</p>
+              <p class="card-test">' . $distance . '</p>
+              <p class="card-text">' . $row['description'] . '</p>
+              <a href="#" class="btn btn-primary">View Event</a>
             </div>
           </div><br />';
         }

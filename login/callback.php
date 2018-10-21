@@ -6,7 +6,7 @@ require '../vendor/autoload.php';
 $provider = new League\OAuth2\Client\Provider\LinkedIn([
     'clientId'          => '86e5b0th5ny7ya',
     'clientSecret'      => '11YUPalMcW1QIsta',
-    'redirectUri'       => 'http://localhost/Voluntr/Voluntr/login/callback.php',
+    'redirectUri'       => 'http://localhost/Voluntr/login/callback.php',
 ]);
 
 if (!isset($_GET['code'])) {
@@ -76,9 +76,12 @@ if (!isset($_GET['code'])) {
         $stmt = $pdo->prepare('SELECT * FROM users WHERE linkedin_id = ?');
         $stmt->execute([$userData['linkedin_id']]);
 
+        $user_exists = false;
+
         foreach($stmt as $row) {
             $user_exists = true;
         }
+
     
         if(!$user_exists) {
             $insstmt = $pdo->prepare('INSERT INTO users (fname, sname, auth_token, auth_token_expiry, refresh_token, profile_picture, location, linkedin_id, linkedin_headline, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
@@ -102,5 +105,5 @@ if (!isset($_GET['code'])) {
     }
 
     // Use this to interact with an API on the users behalf
-    echo $token->getToken();
+    header( 'Location: ../home.html');
 }

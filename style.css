@@ -29,7 +29,7 @@ body, html{
 }
 
 .foot{
-	bottom: 0;
+	/*bottom: 0;*/
 }
 
 .jumbotron {
@@ -53,6 +53,7 @@ body, html{
 
 .main-button{
 	text-align: center;
+
 }
 
 
@@ -84,10 +85,6 @@ table, th, td {
 	border-collapse: collapse;
 }
 
-.row{
-	padding-top: 125px;
-
-}
 
 
 #main-button{
@@ -96,7 +93,7 @@ table, th, td {
 	color: #2BCBBA;
 	background: #f7f7f7;
 	font-size: 15px;
-	
+	border : #2BCBBA solid 2px;
 	font-style: italic;
 }
 

@@ -1,3 +1,13 @@
+<?php
+  session_start();
+
+  if (!isset($_SESSION['uid']))
+  {
+    header( 'Location: ./vlogin.html');
+    exit;
+  }
+?>
+
 <!doctype html>
 <html lang="en" class="not-home">
   <head>
@@ -35,15 +45,11 @@
     <div class="container find-box">
       <div class="main">
         <h3>Enter event information:</h3>
-          <form class="form" action="" method="POST">
+          <form class="form" action="./submitEvent.php" method="POST">
             <div class="fields">
               <div>
                 <label>Event Name:</label>
                 <input type="text" name="event-name" placeholder="Enter event name">
-              </div>
-              <div>
-                <label>Event Organizer:</label>
-                <input type="text" name="event-organizer" placeholder="Enter event organizer">
               </div>
               <div>
                 <label>Event Location:</label>
@@ -54,8 +60,18 @@
                 <input type="time" name="start-time">
               </div>
               <div>
-                <label>End Time:</label>
-                <input type="time" name="end-time">
+                <label>Date:</label>
+                <input type="date" name="date">
+              </div>
+              <label>Category:</label>
+              <select name="category">
+                <option value="Educational">Educational</option>
+                <option value="Community">Community</option>
+                <option value="Large Events">Large Events</option>
+              </select> 
+              <div>
+                <label>Description:</label>
+                <textarea name="description"></textarea> 
               </div>
             </div>
             <br>
