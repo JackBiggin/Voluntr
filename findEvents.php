@@ -115,15 +115,14 @@
             $api = json_decode($api, true);
 
             $distance = $api["response"]["route"][0]["summary"]["distance"];
-            $distance_formatted = $distance / 1000;
-            $distance_formatted = $distance . "km";
+            $distext = $api["response"]["route"][0]["summary"]["text"];
 
             $card = '<div class="card">
             <h5 class="card-header">' . $row['name'] . '</h5>
             <div class="card-body">
               <p class="card-text">' . $dt->format('Y-m-d H:i:s') . '</p>
-              <p class="card-text">' . $row['location'] . '</p>
-              <p class="card-test">' . $distance_formatted . '</p>
+              <p class="card-text">' . $distext . '</p>
+              <p class="card-test">' . $distance . '</p>
               <p class="card-text">' . $row['description'] . '</p>
               <a href="#" class="btn btn-primary">View Event</a>
             </div>
@@ -133,7 +132,9 @@
         }
 
         ksort($results);
-        print_r($results);
+        foreach($results as $result) {
+          echo $result;
+        }
         
       ?>
     </div>
