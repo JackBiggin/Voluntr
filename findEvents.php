@@ -32,24 +32,63 @@
     <br>
     <br>
     <br>
-    <div class="container find-box find-events">
+    <div class="container">
+      <div class="find-box find-events"></div>
       <div class="main">
-        <h3>Enter event information:</h3>
-        <select>
-          <option value="educational">Educational</option>
-          <option value="community">Community</option>
-          <option value="large">Large Events</option>
-        </select> 
-        <br>
-        <br> 
-        <a href="#" class="submit" id="submit">Search</a>
-      </div>
-      <br>
-      <div class="panel panel-default">
-        <div class="panel-heading">Events</div>
-        <div class="panel-body"></div>
-      </div>
+          <h3>Enter event information:</h3>
+          <select class="form-control">
+            <option value="educational">Educational</option>
+            <option value="community">Community</option>
+            <option value="large">Large Events</option>
+          </select> 
+          <br>
+          <br> 
+          <a href="#" class="submit" id="submit">Search</a>
+        </div>
+      <br/ > <br />
+
+      <?php
+        $host = 'localhost';
+        $db   = 'voluntr';
+        $dbuser = 'username';
+        $pass = 'password';
+        $charset = 'utf8mb4';
+
+        $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+        $options = [
+            PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+            PDO::ATTR_EMULATE_PREPARES   => false,
+        ];
+        try {
+            $pdo = new PDO($dsn, $dbuser, $pass, $options);
+        } catch (\PDOException $e) {
+            throw new \PDOException($e->getMessage(), (int)$e->getCode());
+        }
+
+        if(!isset($_GET['category'])) {
+          $stmt = $pdo->prepare("SELECT * FROM events");
+          $stmt->execute();
+        } else {
+          $stmt = $pdo->prepare("SELECT * FROM events WHERE category = ?");
+          $stmt->execute([htmlspecialchars($_GET['category'])]);
+        }
+
+
+        foreach($stmt as $row) {
+            echo '<div class="card">
+            <h5 class="card-header">' . $row['name'] . '</h5>
+            <div class="card-body">
+              <h5 class="card-title">Special title treatment</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div><br />';
+        }
+
+      ?>
     </div>
+  </div>
 
     <div class="footer navbar-light foot">
       <div class="container" id="foot">
