@@ -184,3 +184,15 @@ h3{
 	width: 2em;
 }
 
+.profile-pic-large{
+	border-radius : 15px;
+	width:8em;
+}
+
+.profile-label{
+	text-align : center;
+}
+
+.profile-img{
+	text-align : center;
+}

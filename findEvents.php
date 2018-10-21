@@ -35,10 +35,6 @@
 
     <br>
     <br>
-    <br>
-    <br>
-    <br>
-    <br>
     <div class="container">
       <div class="find-box find-events"></div>
       <div class="main">

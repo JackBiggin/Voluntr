@@ -87,7 +87,7 @@
 
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
-  <body> 
+  <body class="not-home"> 
 
 
     <nav class="navbar navbar-expand-sm navbar-light bg-light" sticky-top>
@@ -105,17 +105,25 @@
       </div>   
     </nav>
     
+    <br>
+    <br>
+    <br>
+    <br>
     <div class="container">
-      <h1>My Profile</h1>
-      <img src="<?php echo $userData['profile_picture'] ?>">
-      <h2>Name: <?php echo $userData['fname'] . " " . $userData['sname'] ?></h2>
-      <h2>Location: <?php echo $userData['location'] ?></h2>
+      <h1 class="profile-label">My Profile</h1>
+      <div class="profile-img">
+        <img class="profile-pic-large" src="<?php echo $userData['profile_picture'] ?>">
+      </div>
+      <h2 class="profile-label">Name: <?php echo $userData['fname'] . " " . $userData['sname'] ?></h2>
+      <h2 class="profile-label">Location: <?php echo $userData['location'] ?></h2>
       <div class="row">
         <div class="col-12 col-md-6">
-          <h2>Times Available: <?php echo $times ?></h2>
+          <h2>Times Available: </h2>
+          <p><?php echo $times ?></p>
         </div>
         <div class="col-12 col-md-6">
-          <h2>Interests: <?php echo $interests ?></h2>
+          <h2>Interests: </h2>
+          <p><?php echo $interests ?></p>
         </div>
       </div>
     </div>
