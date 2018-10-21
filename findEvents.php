@@ -24,8 +24,11 @@
       <div >
         <ul class="navbar-nav">
           <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
-          <li class="nav-item"><a class="nav-link" href="find.html">Find Volunteers</a></li>
+          <li class="nav-item login-button"><a class="nav-link" href="user_profile.php">My Profile</a></li>
+          <li class="nav-item"><a class="nav-link" href="profile.html">Enter Information</a></li>
+          <li class="nav-item"><a class="nav-link" href="find.php">Create Event</a></li>
+          <li class="nav-item login-button"><a class="nav-link" href="findEvents.php">Find Events</a></li>
+          <li class="nav-item login-button"><a class="nav-link" href="vlogin.html">Login</a></li>
         </ul> 
       </div>   
     </nav>
@@ -116,17 +119,17 @@
 
             $distance = $api["response"]["route"][0]["summary"]["distance"];
             $distext = $api["response"]["route"][0]["summary"]["text"];
-
+            $eid = $row['eid'];
             $card = '<div class="card">
             <h5 class="card-header">' . $row['name'] . '</h5>
             <div class="card-body">
               <p class="card-text">' . $dt->format('Y-m-d H:i:s') . '</p>
               <p class="card-text">' . $distext . '</p>
-              <p class="card-test">' . $distance . '</p>
-              <p class="card-text">' . $row['description'] . '</p>
-              <a href="#" class="btn btn-primary">View Event</a>
+              <p class="card-test">'. $row['location'] .'</p>
+              <p class="card-text">' . $row['description'] . "</p>
+              <a href='available.php?eid=$eid' class='btn btn-primary'>Available Volunteers</a>
             </div>
-          </div><br />';
+          </div><br />";
 
           $results[$distance] = $card;
         }
@@ -139,15 +142,6 @@
       ?>
     </div>
   </div>
-
-    <div class="footer navbar-light foot">
-      <div class="container" id="foot">
-        <span>
-          <p>Voluntr 2018</p>
-        </span>
-      </div>
-        
-    </div>
 
     
     <!-- Optional JavaScript -->

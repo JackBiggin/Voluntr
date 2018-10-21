@@ -95,8 +95,9 @@
       <div >
         <ul class="navbar-nav">
           <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
-          <li class="nav-item"><a class="nav-link" href="find.php">Find Volunteers</a></li>
+          <li class="nav-item login-button"><a class="nav-link" href="user_profile.php">My Profile</a></li>
+          <li class="nav-item"><a class="nav-link" href="profile.html">Enter Information</a></li>
+          <li class="nav-item"><a class="nav-link" href="find.php">Create Event</a></li>
           <li class="nav-item login-button"><a class="nav-link" href="findEvents.php">Find Events</a></li>
           <li class="nav-item login-button"><a class="nav-link" href="vlogin.html">Login</a></li>
 
@@ -117,15 +118,6 @@
           <h2>Interests: <?php echo $interests ?></h2>
         </div>
       </div>
-    </div>
-
-    <div class="footer navbar-light">
-      <div class="container" id="foot">
-        <span>
-          <p>Voluntr 2018</p>
-        </span>
-      </div>
-        
     </div>
 
     

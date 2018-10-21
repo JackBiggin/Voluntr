@@ -11,7 +11,7 @@
 <!doctype html>
 <html lang="en" class="not-home">
   <head>
-    <title>Find Volunteers</title>
+    <title>Create Event</title>
     <link href="https://fonts.googleapis.com/css?family=K2D" rel="stylesheet">
     <link rel="icon" href="img/icon.png">
     <!-- Required meta tags -->
@@ -30,8 +30,11 @@
       <div >
         <ul class="navbar-nav">
           <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
-          <li class="nav-item"><a class="nav-link" href="find.html">Find Volunteers</a></li>
+          <li class="nav-item login-button"><a class="nav-link" href="user_profile.php">My Profile</a></li>
+          <li class="nav-item"><a class="nav-link" href="profile.html">Enter Information</a></li>
+          <li class="nav-item"><a class="nav-link" href="find.php">Create Event</a></li>
+          <li class="nav-item login-button"><a class="nav-link" href="findEvents.php">Find Events</a></li>
+          <li class="nav-item login-button"><a class="nav-link" href="vlogin.html">Login</a></li>
         </ul> 
       </div>   
     </nav>
@@ -76,22 +79,12 @@
             </div>
             <br>
             <input type="submit" name="search" 
-            value="Create Event and Search For Volunteers" id="submit" class="submit">
+            value="Create Event" id="submit" class="submit">
           </form>
 
 
       </div>
     </div>
-
-    <div class="footer navbar-light foot">
-      <div class="container" id="foot">
-        <span>
-          <p>Voluntr 2018</p>
-        </span>
-      </div>
-        
-    </div>
-
     
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

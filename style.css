@@ -19,6 +19,8 @@ body, html{
 	position: absolute;
 	
 	width:100%;
+	text-align : center;
+	padding-top: 0.5em;
 
 	background-color: #f6f6f6;
 }
@@ -177,4 +179,8 @@ h3{
 	color : #2BCBBA;
 }
 
+.profile-pic{
+	border-radius : 15px;
+	width: 2em;
+}
 
