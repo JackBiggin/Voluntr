@@ -19,6 +19,8 @@ body, html{
 	position: absolute;
 	
 	width:100%;
+	text-align : center;
+	padding-top: 0.5em;
 
 	background-color: #f6f6f6;
 }
@@ -29,7 +31,7 @@ body, html{
 }
 
 .foot{
-	bottom: 0;
+	/*bottom: 0;*/
 }
 
 .jumbotron {
@@ -53,6 +55,7 @@ body, html{
 
 .main-button{
 	text-align: center;
+
 }
 
 
@@ -84,10 +87,6 @@ table, th, td {
 	border-collapse: collapse;
 }
 
-.row{
-	padding-top: 125px;
-
-}
 
 
 #main-button{
@@ -96,7 +95,7 @@ table, th, td {
 	color: #2BCBBA;
 	background: #f7f7f7;
 	font-size: 15px;
-	
+	border : #2BCBBA solid 2px;
 	font-style: italic;
 }
 
@@ -180,4 +179,20 @@ h3{
 	color : #2BCBBA;
 }
 
+.profile-pic{
+	border-radius : 15px;
+	width: 2em;
+}
 
+.profile-pic-large{
+	border-radius : 15px;
+	width:8em;
+}
+
+.profile-label{
+	text-align : center;
+}
+
+.profile-img{
+	text-align : center;
+}
